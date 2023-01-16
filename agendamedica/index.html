@@ -1,0 +1,1653 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Medical Center</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="theme-color" content="hsl(215.5,90%,38.8%)"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- Fonts Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
+    <!-- theme css -->
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+
+<body>
+    <!-- loader welcome sm -->
+    <!-- <div class="body-welcome-sm">
+        <div class="container-welcome-sm">
+            <img src="img/logo/_Group_(1).svg" class="mx-auto mb-3" width="64" alt="logo">
+            <div class="content-brand">
+                <h1 class="h5 text-white fw-bold mb-0">Medical Center</h1>
+                <p class="text-white fs-sm">Background</p>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="listConvenios" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="listConveniosLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header p-lg-5 pb-lg-4 border-bottom-0">
+                    <h1 class="modal-title fs-5" id="listConveniosLabel">¿Tienes seguro privados?</h1>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body p-lg-5 pt-lg-0">
+                    <form action="" method="post">
+                        <p class="fs-sm">Si eres pacientes por primera vez y tu seguro médico no consta, por favor comunicate al 90067X-XX</p>
+                        <div class="row g-3">
+                            <div class="col-md-3 d-flex align-items-center">
+                                <div class="form-check form-switch ps-5">
+                                    <input class="form-check-input fs-5" type="checkbox" role="switch" name="checkConvenios" id="checkConvenios">
+                                    <label class="form-check-label mt-1" for="checkConvenios"> No/Si</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <select class="form-select" name="convenios" id="convenios" aria-label="Default select example" required="">
+                                    <option selected>No posee convenios</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-top-0">
+                    <!-- <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-sm btn-primary" id="next">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <header class="sticky-top backdrop-blur-sm">
+        <div class="navbar-top">
+            <div class="container border-lg-bottom">
+                <div class="d-flex justify-content-between align-items-center border-bottom">
+                    <!-- navbar top left -->
+                    <div class="d-flex align-items-center">
+                        <a class="navbar-brand text-center d-flex align-items-center my-3">
+                            <!-- <img src="img/logo/logo.png" alt="logo" width="128"> -->
+                            <img src="img/logo/logo-medical-center-2.svg" alt="Bootstrap" width="32">
+                            <div class="leading-3 mx-3 text-start">
+                                <h6 class="fw-bold mb-0">Medical Center</h6>
+                                <span class="fs-12">Background</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- navbar top right -->
+                    <div class="navbar-top-right d-flex align-items-center">
+                        <div class="icon-top-right">
+                            <a class="btn btn-sm" href=""><i class="fa-solid fa-phone"></i></a>
+                            <a class="btn btn-sm" href=""><i class="bi bi-envelope-fill"></i></a>
+                            <a class="btn btn-sm" href=""><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                        <!-- <form class="mx-1" role="search">
+                            <div class="input-group input-search">
+                                <input class="form-control form-control-sm border-0" type="search" placeholder="search for anything..." aria-label="Search">
+                                <span class="input-group-text border-0 p-0"><button class="btn btn-sm" type="submit"><i class="bi bi-search"></i></button></span>
+                            </div>
+                        </form> -->
+                        <!-- <div class="icon-message">
+                            <a class="btn btn-sm" href=""><i class="fa-brands fa-whatsapp"></i></a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- bg-light -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="d-flex justify-content-center align-items-center border-bottom w-100">
+                    <ul class="navbar-nav me-auto flex-row" nav-multi-step>
+                        <li class="nav-item">
+                            <a class="nav-link mb-2 nav-step active">
+                                <!-- <i class="fa-solid fa-layer-group"></i> -->
+                                <!-- <i class="fa-solid fa-bars"></i> -->
+                                <i class="fa-solid fa-house"></i>
+                                <!-- <i class="fa-solid fa-grip-vertical fs-6 me-lg-1"></i> -->
+                                <!-- <i class="bi bi-columns-gap"></i> -->
+                                <span class="nav-text">Paciente</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-2 nav-step">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span class="nav-text">Ciudad</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-2 nav-step">
+                                <i class="fa-solid fa-user-doctor"></i>
+                                <span class="nav-text">Especialidad</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-2 nav-step">
+                                <i class="fa-regular fa-hospital"></i>
+                                <span class="nav-text">Central Médica</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-2 nav-step">
+                                <i class="fa-regular fa-calendar"></i>
+                                <span class="nav-text">Fecha y Hora</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-2 nav-step">
+                                <i class="fa-solid fa-file-invoice"></i>
+                                <span class="nav-text">Confirmación de datos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-2 nav-step">
+                                <i class="fa-regular fa-credit-card"></i>
+                                <span class="nav-text">Pago</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- user avatar -->
+                    <ul class="navbar-nav d-none d-lg-block">
+                        <li class="nav-item dropdown dropdown-user">
+                            <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="user-nav d-sm-flex d-none">
+                                    <span class="user-name fw-bolder">John Doe, 29</span>
+                                    <span class="user-status">Paciente</span>
+                                </div>
+                                <span class="avatar">
+                                    <img class="rounded-circle" src="img/components/team/01.jpg" alt="avatar" width="40" height="40">
+                                    <span class="avatar-status-online"></span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user me-50"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Profile</a><a class="dropdown-item" href="app-email.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail me-50"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Inbox</a><a class="dropdown-item" href="app-todo.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square me-50"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg> Task</a><a class="dropdown-item" href="app-chat.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square me-50"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> Chats</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings me-50"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings</a><a class="dropdown-item" href="page-pricing.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card me-50"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg> Pricing</a><a class="dropdown-item" href="page-faq.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle me-50"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> FAQ</a><a class="dropdown-item" href="page-auth-login-v2.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power me-50"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="multi-step-form" data-multi-step>
+                        <!-- Paciente -->
+                        <section class="box-step hide active py-3 text-center" data-step="1">
+                            <div class="mb-4">
+                                <div class="box-login">
+                                    <div class="text-center">
+                                        <h3 class="fw-bold">Agendar cita</h3>
+                                        <p>Accede a nuestro servicio médicos</p>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 col-lg-8 col-xl-4">
+                                            <div class="card bg-transparent">
+                                                <div class="card-body">
+                                                    <div class="mb-3 text-start">
+                                                        <label for="tipoIdentificacion" class="form-label fs-11">Tipo de identificación del Paciente</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-text focus-border"><i class="fa-solid fa-user"></i></span>
+                                                            <select class="form-select focus-border rounded-end" name="tipoIdentificacion" id="tipoIdentificacion" required="">
+                                                                <option value="2">CEDULA</option>
+                                                                <option value="3">PASAPORTE</option>
+                                                            </select>
+                                                            <div class="invalid-feedback">
+                                                                Eliga un tipo de identificación.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3 text-start">
+                                                        <label for="numeroIdentificacion" class="form-label fs-11">Número de identificación del Paciente</label>
+                                                        <div class="input-group has-validation">
+                                                            <span class="input-group-text focus-border"><i class="fa-solid fa-fingerprint"></i></span>
+                                                            <input type="number" class="form-control focus-border" id="numeroIdentificacion" name="numeroIdentificacion" required="" autocomplete="numeroIdentificacion">
+                                                            <div class="invalid-feedback invalid-numeroIdentificacion" id="invalid-numeroIdentificacion">
+                                                                Digite su numero de identificación.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-blue mb-3 px-md-5" id="getInto" data-next>Ingresar <i class="fa-solid fa-angle-right"></i></button>
+                            </div>
+                            <div class="mb-4">
+                                <p class="fs-sm mb-0">¿Aún no estás registrado?</p>
+                                <button type="button" class="btn btn-sm fs-11">Hazlo ahora</button>
+                            </div>
+                        </section>
+                        <!-- Ciudad -->
+                        <section class="box-step hide py-3 text-center" data-step="2">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <h3 class="fw-bold">Cita médica</h3>
+                                    <p>Elige dónde tendrás la cita</p>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6 col-lg-8 col-xl-4">
+                                        <div class="form-box-city">
+                                            <div class="card bg-transparent">
+                                                <div class="card-body">
+                                                    <div class="text-start text-lg-center">
+                                                        <h5 class="pt-md-3 mt-md-2 mb-3 text-bg-blue">Escoje la ubicación</h5>
+                                                    </div>
+                                                    <div class="row g-2 list-group list-group-city">
+                                                        <div class="col-12 col-md-6 mx-auto">
+                                                            <label class="list-group-item d-flex gap-2">
+                                                                <input class="form-check-input flex-shrink-0 radio" type="radio" name="ciudad" id="ciudad-1" value="" required="">
+                                                                <span class="fs-14">
+                                                                    Cuenca
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 mx-auto">
+                                                            <label class="list-group-item d-flex gap-2">
+                                                                <input class="form-check-input flex-shrink-0 radio" type="radio" name="ciudad" id="ciudad-2" value="" required="">
+                                                                <span class="fs-14">
+                                                                    Guyaquil
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 mx-auto">
+                                                            <label class="list-group-item d-flex gap-2">
+                                                                <input class="form-check-input flex-shrink-0 radio" type="radio" name="ciudad" id="ciudad-3" value="" required="">
+                                                                <span class="fs-14">
+                                                                    Quito
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 mx-auto">
+                                                            <label class="list-group-item d-flex gap-2">
+                                                                <input class="form-check-input flex-shrink-0 radio" type="radio" name="ciudad" id="ciudad-4" value="" required="">
+                                                                <span class="fs-14">
+                                                                    Videoconsulta
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-outline-blue px-md-5" data-previous><i class="fa-solid fa-arrow-left"></i> atrás</button>
+                                <!-- data-next data-bs-toggle="modal" data-bs-target="#listConvenios" -->
+                                <button type="button" class="btn btn-blue btn-location px-md-5" data-next>Continuar</button>
+                            </div>
+                        </section>
+                        <!-- Especialidad -->
+                        <section class="box-step hide py-3 text-center" data-step="3">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <h3 class="fw-bold">Cita médica presencial</h3>
+                                </div>
+                                <h6>Escoje la Especialidad</h6>
+                                <p class="d-none">Elige la especialidad que necesitas. Si la especialidad que buscas no está disponible, considera elegir Medicina General.</p>
+                                <!-- Search px-md-0 p-lg-3 -->
+                                <div class="row justify-content-center">
+                                    <div class="col-10 mb-3">
+                                        <div class="position-relative">
+                                            <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-4 me-md-5" style="z-index: 5; color: #b8b9bc;"></i>
+                                            <input type="text" class="form-control bg-transparent pe-5 py-2" id="nameEspecialidad" placeholder="Busca la especialidad que necesitas" aria-label="Buscar..." aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="form-box-especialidad">
+                                        <div class="card bg-transparent overflow-y-49vh">
+                                            <div class="card-body px-0">
+                                                <div class="row g-2 list-group-especialidad d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-1" value="" required="">
+                                                            <span class="fs-14">
+                                                                ALERGOLOGÍA 19C
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-2" value="" required="">
+                                                            <span class="fs-14">
+                                                                CARDIOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-3" value="" required="">
+                                                            <span class="fs-14">
+                                                                CIRUGÍA GENERAL
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-4" value="" required="">
+                                                            <span class="fs-14">
+                                                                CIRUGÍA MAXILO-FACIAL
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-5" value="" required="">
+                                                            <span class="fs-14">
+                                                                CIRUGÍA VASCULAR
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-6" value="" required="">
+                                                            <span class="fs-14">
+                                                                DERMATOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-7" value="" required="">
+                                                            <span class="fs-14">
+                                                                ENDOCRINOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-8" value="" required="">
+                                                            <span class="fs-14">
+                                                                FISIATRÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-9" value="" required="">
+                                                            <span class="fs-14">
+                                                                GASTROENTEROLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-10" value="" required="">
+                                                            <span class="fs-14">
+                                                                GINECOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-11" value="" required="">
+                                                            <span class="fs-14">
+                                                                MEDICINA GENERAL
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-12" value="" required="">
+                                                            <span class="fs-14">
+                                                                MEDICINA INTERNA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-13" value="" required="">
+                                                            <span class="fs-14">
+                                                                NEFROLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-14" value="" required="">
+                                                            <span class="fs-14">
+                                                                NEUMOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-15" value="" required="">
+                                                            <span class="fs-14">
+                                                                NEUROCIRUGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-16" value="" required="">
+                                                            <span class="fs-14">
+                                                                NEUROLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-17" value="" required="">
+                                                            <span class="fs-14">
+                                                                NUTRICIÓN Y DIETÉTICA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-18" value="" required="">
+                                                            <span class="fs-14">
+                                                                ODONTOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-19" value="" required="">
+                                                            <span class="fs-14">
+                                                                OFTALMOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-20" value="" required="">
+                                                            <span class="fs-14">
+                                                                OPTOMETRÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-21" value="" required="">
+                                                            <span class="fs-14">
+                                                                OTORRINOLARINGOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-22" value="" required="">
+                                                            <span class="fs-14">
+                                                                PEDIATRIA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-23" value="" required="">
+                                                            <span class="fs-14">
+                                                                PSICOLOGÍA CLÍNICA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-24" value="" required="">
+                                                            <span class="fs-14">
+                                                                PSIQUIATRIA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-25" value="" required="">
+                                                            <span class="fs-14">
+                                                                REUMATOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-26" value="" required="">
+                                                            <span class="fs-14">
+                                                                TERAPIA FÍSICA Y REHABILITACIÓN
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-27" value="" required="">
+                                                            <span class="fs-14">
+                                                                TRAUMATOLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <label class="list-group-item list-especialidad d-flex gap-2 px-3 py-2">
+                                                            <input class="form-check-input btn-check flex-shrink-0 radio" type="radio" name="especialidad" id="especialidad-28" value="" required="">
+                                                            <span class="fs-14">
+                                                                UROLOGÍA
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button type="button" class="btn btn-outline-blue px-md-5" data-previous><i class="fa-solid fa-arrow-left"></i> atrás</button>
+                                <button type="button" class="btn btn-blue btn-specialties px-md-5" data-next>Continuar</button>
+                            </div>
+                        </section>
+                        <!-- Centros médicos -->
+                        <section class="box-step hide py-3 text-center" data-step="4">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <h3 class="fw-bold">Central Médica</h3>
+                                    <p class="text-start text-lg-center">Elige la central medica dónde quieres agendar tú cita</p>
+                                </div>
+                                <div class="position-relative d-flex px-0 px-md-0 p-lg-3 mb-3">
+                                    <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-4 me-md-5" style="z-index: 5; color: #b8b9bc;"></i>
+                                    <input type="text" class="form-control border bg-transparent ps-2 pe-5" id="nameCentralMedica" placeholder="Buscar la central médica" aria-label="Buscar..." aria-describedby="basic-addon1">
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="form-box-centralmedica">
+                                        <div class="card bg-transparent">
+                                            <div class="card-body px-0 px-md-0 p-lg-3">
+                                                <div class="row g-3 list-group-centralmedica d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative d-flex gap-2">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-1" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-1">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico Express Samanes 19C
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-2" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-2">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico Express BlueCoast
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-3" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-3">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico Alborada
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-4" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-4">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico C.C. El Dorado
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-5" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-5">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico Sur
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-6" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-6">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico Kennedy
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-7" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-7">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico Los Ceibos
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-8" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-8">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico C.C. Mall del Sol
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                        <div class="item-centralMedica position-relative">
+                                                            <input class="form-check-input btn-check radio position-absolute top-20 end-0 me-3" type="radio" name="centralmedica" id="centralmedica-9" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="centralmedica-9">
+                                                                <img src="img/components/icons/centro-medico.png" class="me-2" width="64" alt="">
+                                                                <div class="text-start w-50 w-lg-75">
+                                                                    <p class="fs-sm fw-bold lh-4 mb-0">
+                                                                        Centro medico Express Villa Club
+                                                                    </p>
+                                                                    <p class="fs-10 mb-0">RIOCENTRO CEIBOS, NUEVA ETAPA CERCA DE SUPERCINES, MEZZANINE</p>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button type="button" class="btn px-md-5" data-previous><i class="fa-solid fa-arrow-left"></i> atrás</button>
+                                <button type="button" class="btn btn-blue btn-medical-center px-md-5" data-next>Continuar</button>
+                            </div>
+                        </section>
+                        <!-- Fecha y Hora -->
+                        <section class="box-step hide py-3 text-center" data-step="5">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <h3 class="fw-bold">Cita médica presencial</h3>
+                                </div>
+                                <div class="text-center">
+                                    <p class="fw-normal">Escoge la fecha</p>
+                                    <p class="fs-14 d-none">Esta es la cita m&aacute;s pr&oacute;xima disponible. <strong>Si la fecha no se ajuste a tus necesidades, da click en "Cambiar fecha".</strong></p>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 col-lg-6 col-xl-3 mb-3">
+                                        <div class="card card-calendar bg-transparent shadow-1 text-center position-relative">
+                                            <div class="card-body">
+                                                <div class="box-label-fecha d-flex justify-content-between align-items-center">
+                                                    <div class="bg-violet rounded px-3">
+                                                        <h3 class="mb-0 fw-bold" id="fechaCitaSelected">18 <sup><span class="fs-12" id="diaSemana">DOM</span></sup></h3>
+                                                        <p class="fw-light mb-0"><b id="fechaMes">Dic, </b><b class="anio" id="fechaAnio">2022</b></p>
+                                                    </div>
+                                                    <div><i class="bi bi-chevron-right"></i></div>
+                                                    <div class="icon-calendar me-3">
+                                                        <input type="hidden" id="fechaElegidaStr" value="">
+                                                        <label for="fechaCita" class="cursor-pointer">
+                                                            <span><i class="bi bi-calendar2-event"></i></span>
+                                                            <input type="date" class="input-fechaCita" name="fechaCita" id="fechaCita" placeholder="CAMBIAR FECHA" data-position="bottom center" data-language="es">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-start">
+                                    <h6 class="fw-bold">Especialistas disponibles</h6>
+                                    <p>Ahora, selecciona el especialista y el horario que prefieres para tu cita.</p>
+                                </div>
+                                <div class="row justify-content-center px-md-3">
+                                    <!-- needs-validation / novalidate overflow-y-49vh-->
+                                    <div class="form-box-disponibilidad px-0">
+
+                                        <div class="accordion accordion-list-doctors accordion-flush p-3" id="accordionFlushDoctor">
+
+                                            <div class="accordion-item accordion-doctor-1 bg-transparent mb-3">
+                                                <h2 class="accordion-header" id="flush-doctorHour-1">
+                                                    <button class="accordion-button p-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseDoctorHour-1" aria-expanded="true" aria-controls="flush-collapseDoctorHour-1">
+                                                        <div class="icon-avatar-doc bg-transparent rounded-circle">
+                                                            <img src="img/components/team/doctor-1.png" class="card-img rounded-circle" alt="">
+                                                        </div>
+                                                        <div class="text-start my-auto">
+                                                            <p class="fw-bold fs-12 mb-0">Dermatologia</p>
+                                                            <small class="mb-0 fs-12">Dr(a). Marcus Horizon</small>
+                                                        </div>
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseDoctorHour-1" class="accordion-collapse collapse show" aria-labelledby="flush-doctorHour-1" data-bs-parent="#accordionFlushDoctor">
+                                                    <div class="accordion-body px-0">
+                                                        <div class="row g-3 d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-1" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-1">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-2" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-2">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-3" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-3">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-4" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-4">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-5" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-5">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-6" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-6">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-7" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-7" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                        <i class="bi bi-percent flex-shrink-0"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-8" value="" required="">
+                                                                    <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-8">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item accordion-doctor-2 bg-transparent mb-3">
+                                                <h2 class="accordion-header" id="flush-doctorHour-2">
+                                                    <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseDoctorHour-2" aria-expanded="false" aria-controls="flush-collapseDoctorHour-2">
+                                                        <div class="icon-avatar-doc bg-transparent rounded-circle">
+                                                            <img src="img/components/team/doctor-2.png" class="card-img rounded-circle" alt="">
+                                                        </div>
+                                                        <div class="text-start my-auto">
+                                                            <p class="fw-bold fs-12 mb-0">Dermatologia</p>
+                                                            <small class="mb-0 fs-12">Dr(a). Alysa Hana</small>
+                                                        </div>
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseDoctorHour-2" class="accordion-collapse collapse" aria-labelledby="flush-doctorHour-2" data-bs-parent="#accordionFlushDoctor">
+                                                    <div class="accordion-body px-0">
+                                                        <div class="row g-3 d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-21" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-21">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-22" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-22">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-23" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-23">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-24" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-24">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-25" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-25">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-26" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-26" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                        <i class="bi bi-percent flex-shrink-0"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-27" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-27" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                        <i class="bi bi-percent flex-shrink-0"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-28" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-28">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item accordion-doctor-3 bg-transparent mb-3">
+                                                <h2 class="accordion-header" id="flush-doctorHour-3">
+                                                    <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseDoctorHour-3" aria-expanded="false" aria-controls="flush-collapseDoctorHour-3">
+                                                        <div class="icon-avatar-doc bg-transparent rounded-circle">
+                                                            <img src="img/components/team/doctor-3.png" class="card-img rounded-circle" alt="">
+                                                        </div>
+                                                        <div class="text-start my-auto">
+                                                            <p class="fw-bold fs-12 mb-0">Dermatologia</p>
+                                                            <small class="mb-0 fs-12">Dr(a). GARCIA MARIA DE LOS ANGELES</small>
+                                                        </div>
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseDoctorHour-3" class="accordion-collapse collapse" aria-labelledby="flush-doctorHour-3" data-bs-parent="#accordionFlushDoctor">
+                                                    <div class="accordion-body px-0">
+                                                        <div class="row g-3 d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-31" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-31">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-32" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-32">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-33" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-33" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                        <i class="bi bi-percent flex-shrink-0"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-34" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-34">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-35" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-35">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-36" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-36" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                        <i class="bi bi-percent flex-shrink-0"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-37" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-37" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                        <i class="bi bi-percent flex-shrink-0"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-6 col-md-3 col-lg-2">
+                                                                <div class="box-horario position-relative">
+                                                                    <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-38" value="" required="">
+                                                                    <label class="btn d-flex align-items-center" for="doctor-hour-38">
+                                                                        <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                        <span class="mx-2">19:00-19:20</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- item Doctor -->
+                                        <!-- <div class="card card-doctor-hour-1 bg-transparent border-0 d-none">
+                                            <div class="card-body">
+                                                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                                    <div class="box-doct d-flex">
+                                                        <div class="icon-avatar-doc">
+                                                            <img src="img/components/team/doctor-1.png" class="card-img" alt="">
+                                                        </div>
+                                                        <div class="text-start my-auto">
+                                                            <p class="fw-bold fs-12 mb-0">Dermatologia</p>
+                                                            <small class="mb-0 fs-12">Dr(a). Marcus Horizon</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-3 d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-1" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-1">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-2" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-2">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-3" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-3">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-4" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-4">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-5" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-5">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-6" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-6">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-7" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-7" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                <i class="bi bi-percent flex-shrink-0"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-8" value="" required="">
+                                                            <label class="btn d-flex align-items-center justify-content-center" for="doctor-hour-8">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div> -->
+        
+                                        <!-- item Doctor -->
+                                        <!-- <div class="card card-doctor-hour-2 bg-transparent border-0 d-none">
+                                            <div class="card-body">
+                                                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                                    <div class="box-doct d-flex">
+                                                        <div class="icon-avatar-doc">
+                                                            <img src="img/components/team/doctor-2.png" class="card-img" alt="">
+                                                        </div>
+                                                        <div class="text-start my-auto">
+                                                            <p class="fw-bold fs-12 mb-0">Dermatologia</p>
+                                                            <small class="mb-0 fs-12">Dr(a). Alysa Hana</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-3 d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-21" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-21">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-22" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-22">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-23" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-23">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-24" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-24">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-25" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-25">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-26" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-26" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                <i class="bi bi-percent flex-shrink-0"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-27" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-27" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                <i class="bi bi-percent flex-shrink-0"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-28" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-28">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div> -->
+        
+                                        <!-- item Doctor -->
+                                        <!-- <div class="card card-doctor-hour-3 bg-transparent border-0 d-none">
+                                            <div class="card-body">
+                                                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                                    <div class="box-doct d-flex">
+                                                        <div class="icon-avatar-doc">
+                                                            <img src="img/components/team/doctor-3.png" class="card-img" alt="">
+                                                        </div>
+                                                        <div class="text-start my-auto">
+                                                            <p class="fw-bold fs-12 mb-0">Dermatologia</p>
+                                                            <small class="mb-0 fs-12">Dr(a). GARCIA MARIA DE LOS ANGELES</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-3 d-md-flex align-content-md-stretch flex-md-wrap mx-auto">
+                                                    
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-31" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-31">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-32" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-32">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-33" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-33" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                <i class="bi bi-percent flex-shrink-0"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-34" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-34">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-35" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-35">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-36" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-36" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                <i class="bi bi-percent flex-shrink-0"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-37" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-37" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Lunes, 25 de JULIO - 19:00-19:20 | Cita con descuento del 10%.">
+                                                                <i class="bi bi-percent flex-shrink-0"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6 col-md-3 col-lg-2">
+                                                        <div class="box-horario position-relative">
+                                                            <input type="radio" class="btn-check" name="doctor-hour" id="doctor-hour-38" value="" required="">
+                                                            <label class="btn d-flex align-items-center" for="doctor-hour-38">
+                                                                <i class="bi bi-clock rounded-circle flex-shrink-0 fs-18"></i>
+                                                                <span class="mx-2">19:00-19:20</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button type="button" class="btn px-md-5" data-previous><i class="fa-solid fa-arrow-left"></i> atrás</button>
+                                <button type="button" class="btn btn-blue btn-physician px-md-5" data-next>Continuar</button>
+                            </div>
+                        </section>
+                        <!-- Confirmación de datos -->
+                        <section class="box-step hide py-3" data-step="6">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <h3 class="fw-bold">Agendar cita</h3>
+                                    <p>Accede a nuestro servicio médicos</p>
+                                </div>
+                                <div class="row g-4 justify-content-center">
+                                    <div class="col-12 col-lg-4">
+                                        <h5 class="mb-4">Cita medica</h5>
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <div class="row g-0 justify-content-between align-items-center mb-3">
+                                                    <div class="col-12 col-md-8">
+                                                        <ul class="list-group list-group-flush fs-12">
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-0">Paciente <p class="fw-bold mb-0">Fernanda Alarcon Tapia</p></li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-0">Dr(a). <p class="fw-bold mb-0">Villon Asencio Abel Armando</p></li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-0">Especialidad <p class="text-specialty fw-bold mb-0">Cardiologia</p></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="box-fecha-hora d-flex flex-column text-md-end">
+                                                            <small class="fs-10">Fecha y <br> hora de atención</small>
+                                                            <h3 class="fw-bold mb-0">10:20 <sup class="fs-12">AM</sup></h3>
+                                                            <p class="fs-10 mb-0">AGO 09, 2021</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="mb-0 fw-600">Centro Medico Norte Fundación de Damas del Honorable Cuerpo Consular</p>
+                                                <p class="mb-0 fs-sm"><i class="bi bi-geo-alt-fill"></i> C. Primera, Guayaquil 090613</p>
+                                            </div>
+                                        </div>
+                                        <div class="box-info d-flex justify-content-center">
+                                            <div class="col-12">
+    
+                                                <!-- tex-info | Cita Reagendada -->
+                                                <div class="card text-info-one mb-3 d-none">
+                                                    <div class="card-body">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="fa-solid fa-circle-info mx-3"></i>
+                                                            <div>
+                                                                <p class="mb-0 fs-14 lh-16">Puedes <strong>reagendar</strong> tu cita las veces que necesites.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- tex-info | Con Descuento -->
+                                                <div class="card text-info-two mb-3 d-none">
+                                                    <div class="card-body">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="fa-solid fa-circle-info mx-3"></i>
+                                                            <div>
+                                                                <p class="mb-0 fs-14 lh-16">Una vez agendada la cita, no podrás cambiarla, ni solicitar su devolución debido a este descuento.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- tex-info | Solo Agenda y NO PAGA -->
+                                                <div class="card text-info-three mb-3 d-none">
+                                                    <div class="card-body">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="fa-solid fa-circle-info mx-3"></i>
+                                                            <div>
+                                                                <p class="mb-0 fs-14 lh-16"><strong>Recuerda</strong>  llegar <strong>20 minutos antes</strong> de la cita y acercarte a caja para realizar el pago.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3">
+                                        <h5 class="mb-4">Precio</h5>
+                                        
+                                        <div class="card card-invoice">
+                                            <div class="card-body position-relative">
+                                                <div class="round-circle-left"></div>
+                                                <div class="round-circle-right"></div>
+                                                <ul class="list-unstyled fs-sm pb-2 border-dashed">
+                                                    <li class="d-flex justify-content-between align-items-center"><span class="fs-12 me-2">Subtotal:</span><span class="text-end">$28.00</span></li>
+                                                    <li class="d-flex justify-content-between align-items-center"><span class="fs-12 me-2">Descuento:</span><span class="text-end">30%</span></li>
+                                                    <li class="d-flex justify-content-between align-items-center"><span class="fs-12 me-2">Total:</span><span class="text-end">$19.6</span></li>
+                                                </ul>
+                                                <div class="row justify-content-between align-items-center">
+                                                    <div class="col text-center">   <!-- d-none -->
+                                                        <div class="info-descuento text-center">
+                                                            <h5 class="fw-bold me-3 mb-0">30%</h5>
+                                                            <p class="lh-4 fs-12">de descuento por el horario que elegiste</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col text-center">
+                                                        <small>Precio a pagar</small>
+                                                        <h5 class="total-price fw-bold">$19.60 <small>USD</small></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button type="button" class="btn btn-schedule-change px-md-5" data-previous><i class="fa-solid fa-arrow-left"></i> cambiar</button>
+                                <button type="button" class="btn btn-blue px-md-5" data-next>Agendar</button>
+                            </div>
+                        </section>
+                        <!-- Pago -->
+                        <section class="box-step hide py-3" data-step="7">
+                            <!-- Pasarela Interna -->
+                            <div class="box-payment mb-4">
+                                <div class="text-center">
+                                    <h3 class="fw-bold">Forma de Pago</h3>
+                                </div>
+                                <p>Para completar el pago, complete los detalles a continuación.</p>
+                                <div class="row g-4">
+                                    <div class="col-12 col-lg-8">
+                                        <div class="card bg-transparent">
+                                            <div class="card-body">
+                                                <form class="row g-3 form-billing-inform" name="formBillingInform" id="formBillingInform" action="" method="post">
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="tipoIdentificacionFact" class="form-label fs-12">Tipo de identificación <span class="text-danger">*</span></label>
+                                                        <select class="form-select" name="tipoIdentificacionFact" id="tipoIdentificacionFact">
+                                                            <option value="2" selected>C&eacute;dula</option>
+                                                            <option value="1">RUC</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12 col-lg-6 numeroIdentificacionFact">
+                                                        <!-- value="0954555397" -->
+                                                        <label for="numeroIdentificacionFact" class="form-label fs-12">identificación <span class="text-danger">*</span></label>
+                                                        <input type="number" class="form-control" name="numeroIdentificacionFact" id="numeroIdentificacionFact" placeholder="09xx731xx9" required />
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <!-- value="Danny Clarke" -->
+                                                        <label for="primerNombreFact" class="form-label name-label fs-12">Nombres <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" name="primerNombreFact" id="primerNombreFact" placeholder="Danny Clarke" required />
+                                                    </div>
+                                                    <div class="col-12 col-lg-6 elem-no-ruc">
+                                                        <!-- value="Velez" -->
+                                                        <label for="primerApellidoFact" class="form-label fs-12">Primer Apellido <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control input-no-ruc" name="primerApellidoFact" id="primerApellidoFact" placeholder="Danny Clarke" required />
+                                                    </div>
+                                                    <div class="col-12 col-lg-6 elem-no-ruc">
+                                                        <!-- value="McLoan" -->
+                                                        <label for="segundoApellidoFact" class="form-label fs-12">Segundo Apellido <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control input-no-ruc" name="segundoApellidoFact" id="segundoApellidoFact" placeholder="McLoan Jeffery" required />
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <!-- value="Apartment, studio, or floor" -->
+                                                        <label for="direccionFact" class="form-label fs-12">Direcci&oacute;n Cliente <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" name="direccionFact" id="direccionFact" placeholder="Apartment, studio, or floor" required />
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <!-- value="clark.Jeffery@zmail.com" -->
+                                                        <label for="mailFact" class="form-label fs-12">Correo electr&oacute;nico <span class="text-danger">*</span></label>
+                                                        <input type="email" class="form-control" name="mailFact" id="mailFact" placeholder="clark.Jeffery@zmail.com" required/>
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <!-- value="09XX3XXX9X" -->
+                                                        <label for="telefonoFact" class="form-label fs-12">Tel&eacute;fono <span class="text-danger">*</span></label>
+                                                        <input type="number" class="form-control" name="telefonoFact" id="telefonoFact" required />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div class="card bg-light-grayish shadow-1">
+                                            <div class="card-body">
+                                                <p class="fs-12 mb-0 text-paymentMethod">Si deseas pagar con <strong>Diners Club</strong> o <strong>Discover</strong></p>
+                                                <button class="btn btn-sm btn-payMeth text-bg-blue fs-12 mb-3" id="payMeth">Click aquí</button>
+                                                
+                                                <!-- PTP -->
+                                                <div class="card card-PTP bg-transparent border-0 text-center mb-3" id="PTP" style="display: block;">
+                                                    <form id="p2p-pay-form" action="" method="post">
+                                                        <div class="img-placetopay text-center my-3">
+                                                            <img src="img/components/card/methodPTP.png" class="card-img" alt="placetopay">
+                                                        </div>
+                                                        <h5 class="text-center mb-3">$31.50</h5>
+                                                        <button form="formBillingInform" type="button" class="btn btn-blue btn-pago-online mb-3 w-100" id="toPayPTP">Pagar</button>
+                                                    </form>
+                                                </div>
+
+                                                <!-- Kushki -->
+                                                <div class="card card-kushki mb-3" id="kushki" style="display: none;">
+
+                                                    <div class="card-header text-center">
+                                                        <h6 class="text-dark-1"><i class="bi bi-credit-card"></i> Tarjeta de cr&eacute;dito o d&eacute;bito</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-center mb-3">
+                                                            <i class="bi bi-credit-card"></i>
+                                                            <i class="bi bi-credit-card"></i>
+                                                            <i class="bi bi-credit-card"></i>
+                                                            <i class="bi bi-credit-card"></i>
+                                                        </div>
+                                                        <div class="row g-3">
+                                                            <div class="col-12">
+                                                                <input type="text" class="form-control" name="nombreClienteTarjeta" id="nombreClienteTarjeta" placeholder="Nombre y apellido" required />
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <input type="number" class="form-control" name="numeroTarjeta" id="numeroTarjeta" placeholder="Número de tarjeta" required />
+                                                            </div>
+                                                            <div class="col-12 col-md-6">
+                                                                <input type="number" class="form-control" name="fechaTarjeta" id="fechaTarjeta" placeholder="MM/AA" required />
+                                                            </div>
+                                                            <div class="col-12 col-md-6">
+                                                                <input type="number" class="form-control" name="cvc" id="cvc" placeholder="CVC" required />
+                                                            </div>
+                                                            <div class="COL-12">
+                                                                <button class="btn btn-secondary w-100">Pagar 35.28 USD</button>
+                                                            </div>
+                                                            <br><br><br><br><br><br><br><br><br>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Terminos y condiciones -->
+                                                <div class="col-12">
+                                                    <div class="form-check">
+                                                        <input form="formBillingInform" class="form-check-input" type="checkbox" name="terminos" id="terminos" checked>
+                                                        <label class="form-check-label fs-12 text-bg-blue" for="terminos">
+                                                            Acepto <a href="/" target="_blank" class="text-decoration-none fw-bold">T&eacute;rminos y condiciones</a>
+                                                        </label>
+                                                        <!-- <div class="invalid-feedback">
+                                                            Debe aceptar términos y condiciones
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cita agendada -->
+                            <div class="box-cita-agendada-end" style="display: none;">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-circle-check mb-0"></i>
+                                    <h3 class="fw-bold">Cita agendada</h3>
+                                </div>
+                                <div class="row g-3 justify-content-md-center align-items-center">
+                                    <div class="col-12 col-lg-5">
+                                        <div class="text-center text-cita-agendada">
+                                            <p class="fw-600 fs-5 mb-0">Tu cita se agendó exitosamente. <br> ¡Nos vemos pronto!</p>
+                                        </div>
+                                        <div class="card bg-transparent img-cita-agendada">
+                                            <img src="img/components/svg/medicos-medical-center.svg" class="mb-0" alt="">
+                                        </div>
+                                        <div class="text-center mb-4">
+                                            <a href="#" class="btn btn-blue">Finalizar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="text-end d-none">
+                                <button type="button" class="btn px-md-5" data-previous><i class="fa-solid fa-arrow-left"></i> atrás</button>
+                                <button type="button" class="btn btn-blue px-md-5" id="toPay">Pagar</button>
+                            </div> -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row d-flex align-items-center text-center text-lg-start">
+                <div class="col-12">
+                    <div class="copyright-text fs-12 py-2">
+                        <p class="d-none d-lg-block mb-0">@2022 All Rights Reserved by <a class="ms-1" href="/">maui</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+    <!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Main js -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
