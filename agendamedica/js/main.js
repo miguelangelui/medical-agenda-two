@@ -4,6 +4,17 @@ let _nextStep;
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
+window.onbeforeunload = function() {
+    return "Data will be lost if you leave the page, are you sure?";
+    // return menswal();
+};
+
+// ------------------ Loader welcome ------------------
+const myTimeout = setTimeout(myGreeting, 3000);
+
+function myGreeting() {
+    document.querySelector('.body-welcome-sm').classList.add('d-none');
+}
 
 // ------------------ Login ------------------
 // tipoIdentificacion & numeroIdentificacion
